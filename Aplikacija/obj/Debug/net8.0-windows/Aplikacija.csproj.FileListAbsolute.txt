@@ -1,0 +1,17 @@
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\obj\Debug\net8.0-windows\Aplikacija.MainForm.resources
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\obj\Debug\net8.0-windows\Aplikacija.csproj.GenerateResource.cache
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\obj\Debug\net8.0-windows\Aplikacija.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\obj\Debug\net8.0-windows\Aplikacija.AssemblyInfoInputs.cache
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\obj\Debug\net8.0-windows\Aplikacija.AssemblyInfo.cs
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\obj\Debug\net8.0-windows\Aplikacija.csproj.CoreCompileInputs.cache
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\obj\Debug\net8.0-windows\Aplikacija.sourcelink.json
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\bin\Debug\net8.0-windows\Aplikacija.exe
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\bin\Debug\net8.0-windows\Aplikacija.deps.json
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\bin\Debug\net8.0-windows\Aplikacija.runtimeconfig.json
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\bin\Debug\net8.0-windows\Aplikacija.dll
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\bin\Debug\net8.0-windows\Aplikacija.pdb
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\obj\Debug\net8.0-windows\Aplikacija.dll
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\obj\Debug\net8.0-windows\refint\Aplikacija.dll
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\obj\Debug\net8.0-windows\Aplikacija.pdb
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\obj\Debug\net8.0-windows\Aplikacija.genruntimeconfig.cache
+C:\Users\korisnik\Desktop\repo\mms\Aplikacija\obj\Debug\net8.0-windows\ref\Aplikacija.dll
