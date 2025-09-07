@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Aplikacija.Core.Filters;
+using Aplikacija.Core.Imaging;
+using Aplikacija.Core.IO;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
@@ -8,16 +11,18 @@ namespace Aplikacija
     public partial class MainForm : Form
     {
         private Bitmap _currentBitmap;
-
+        private readonly ImageDocument _doc = new();
         public MainForm()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
 
         // ===== lifecycle =====
         private void MainForm_Load(object sender, EventArgs e)
         {
             lblInfo.Text = "Ready";
+            UpdateUi();
         }
 
         // ===== File =====
@@ -36,10 +41,17 @@ namespace Aplikacija
         private void btnRedo_Click(object sender, EventArgs e) => BtnRedo();
 
         // ===== Filters =====
-        private void filterGaussianMenuItem_Click(object sender, EventArgs e) => ApplyFilterPlaceholder("Gaussian Blur");
-        private void filterMeanRemovalMenuItem_Click(object sender, EventArgs e) => ApplyFilterPlaceholder("Mean Removal");
-        private void filterBlacklightMenuItem_Click(object sender, EventArgs e) => ApplyFilterPlaceholder("Blacklight");
-        private void filterHistEqMenuItem_Click(object sender, EventArgs e) => ApplyFilterPlaceholder("Histogram Equalization");
+        private void filterGaussianMenuItem_Click(object sender, EventArgs e)
+            => ApplyFilter(new GaussianBlurFilter());
+
+        private void filterMeanRemovalMenuItem_Click(object sender, EventArgs e)
+            => ApplyFilter(new MeanRemovalFilter());
+
+        private void filterBlacklightMenuItem_Click(object sender, EventArgs e)
+            => ApplyFilter(new BlacklightFilter());
+
+        private void filterHistEqMenuItem_Click(object sender, EventArgs e)
+            => ApplyFilter(new HistogramEqualizationFilter());
 
         // ===== helpers (privremeno – TODO: zameni pravom logikom) =====
         private void BtnOpen()
@@ -49,36 +61,47 @@ namespace Aplikacija
                 Title = "Open image",
                 Filter = "Images|*.bmp;*.png;*.jpg;*.jpeg;*.yuvimg|All files|*.*"
             };
-            if (ofd.ShowDialog(this) == DialogResult.OK)
+            if (ofd.ShowDialog(this) != DialogResult.OK) return;
+
+            try
             {
-                try
-                {
-                    // TODO: ako je .yuvimg pozovi svoj loader
-                    _currentBitmap?.Dispose();
-                    _currentBitmap = new Bitmap(ofd.FileName);
-                    pbImage.Image = _currentBitmap;
-                    lblInfo.Text = $"{_currentBitmap.Width}×{_currentBitmap.Height}";
-                    EnableUndoRedo(false, false);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(this, ex.Message, "Open failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Bitmap bmp;
+                if (ofd.FileName.EndsWith(".yuvimg", StringComparison.OrdinalIgnoreCase))
+                    bmp = YuvImgCodec.Load(ofd.FileName);
+                else
+                    bmp = new Bitmap(ofd.FileName);
+
+                _doc.LoadBitmap(bmp);
+                bmp.Dispose();
+                pbImage.Image = _doc.Bitmap; // cover prikaz
+                lblInfo.Text = $"{_doc.Bitmap.Width}×{_doc.Bitmap.Height}";
+                UpdateUi();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "Open failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void BtnSave()
         {
+            if (_doc.Bitmap == null) return;
             using var sfd = new SaveFileDialog
             {
                 Title = "Save custom format",
                 Filter = "YUV Image (*.yuvimg)|*.yuvimg",
                 DefaultExt = "yuvimg"
             };
-            if (sfd.ShowDialog(this) == DialogResult.OK)
+            if (sfd.ShowDialog(this) != DialogResult.OK) return;
+
+            try
             {
-                // TODO: konverzija Bitmap→YUV + downsampling + snimanje
-                MessageBox.Show(this, "TODO: implement Save (.yuvimg)", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                YuvImgCodec.Save(sfd.FileName, _doc.Bitmap, Subsampling.YUV420);
+                lblInfo.Text = $"Saved .yuvimg ({_doc.Bitmap.Width}×{_doc.Bitmap.Height})";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "Save failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -104,20 +127,34 @@ namespace Aplikacija
 
         private void BtnUndo()
         {
-            // TODO: pozovi UndoRedoManager.Undo
-            MessageBox.Show(this, "TODO: Undo", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            _doc.Undo();
+            pbImage.Image = _doc.Bitmap;
+            UpdateUi();
         }
 
         private void BtnRedo()
         {
-            // TODO: pozovi UndoRedoManager.Redo
-            MessageBox.Show(this, "TODO: Redo", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            _doc.Redo();
+            pbImage.Image = _doc.Bitmap;
+            UpdateUi();
         }
 
-        private void ApplyFilterPlaceholder(string name)
+        private void ApplyFilter(IImageFilter filter)
         {
-            // TODO: zameni pozivom pravog filtera + push u Undo
-            MessageBox.Show(this, $"TODO: Apply '{name}'", "Filter", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (_doc.Bitmap == null) return;
+            _doc.Apply(src => filter.Apply(src));
+            pbImage.Image = _doc.Bitmap;
+            lblInfo.Text = $"Applied: {filter.Name}";
+            UpdateUi();
+        }
+
+
+        private void UpdateUi()
+        {
+            bool has = _doc.Bitmap != null;
+            btnSave.Enabled = fileSaveMenuItem.Enabled = has;
+            btnUndo.Enabled = editUndoMenuItem.Enabled = _doc.CanUndo;
+            btnRedo.Enabled = editRedoMenuItem.Enabled = _doc.CanRedo;
         }
 
         private void EnableUndoRedo(bool undo, bool redo)

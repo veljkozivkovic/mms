@@ -29,7 +29,7 @@
         private System.Windows.Forms.ToolStripButton btnRedo;
 
         private System.Windows.Forms.Panel panelViewport;
-        private System.Windows.Forms.PictureBox pbImage;
+        private Aplikacija.UI.Controls.CoverImageView pbImage;
 
         private System.Windows.Forms.StatusStrip statusMain;
         private System.Windows.Forms.ToolStripStatusLabel lblInfo;
@@ -69,13 +69,17 @@
             btnUndo = new ToolStripButton();
             btnRedo = new ToolStripButton();
             panelViewport = new Panel();
-            pbImage = new PictureBox();
+            pbImage = new Aplikacija.UI.Controls.CoverImageView();
+            pbImage.Dock = DockStyle.Fill;
+            pbImage.Margin = new Padding(0);
+            pbImage.Name = "pbImage";
+            pbImage.TabIndex = 0;
+            pbImage.TabStop = false;
             statusMain = new StatusStrip();
             lblInfo = new ToolStripStatusLabel();
             menuMain.SuspendLayout();
             toolMain.SuspendLayout();
             panelViewport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbImage).BeginInit();
             statusMain.SuspendLayout();
             SuspendLayout();
             // 
@@ -295,7 +299,6 @@
             toolMain.ResumeLayout(false);
             toolMain.PerformLayout();
             panelViewport.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pbImage).EndInit();
             statusMain.ResumeLayout(false);
             statusMain.PerformLayout();
             ResumeLayout(false);
