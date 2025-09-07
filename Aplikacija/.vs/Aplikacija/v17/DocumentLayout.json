@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\ui\\controls\\coverimageview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:ui\\controls\\coverimageview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\core\\io\\yuvimgcodec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:core\\io\\yuvimgcodec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\core\\imaging\\underedomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:core\\imaging\\underedomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,16 +27,28 @@
       "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:core\\imaging\\imagedocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\ui\\controls\\coverimageview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:ui\\controls\\coverimageview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\core\\filters\\meanremovalfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:core\\filters\\meanremovalfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\core\\filters\\histogramequalizationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:core\\filters\\histogramequalizationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\core\\filters\\gaussianblurfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:core\\filters\\gaussianblurfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\core\\filters\\blacklightfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:core\\filters\\blacklightfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\core\\filters\\iimagefilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:core\\filters\\iimagefilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\aplikacija.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
@@ -31,36 +59,8 @@
       "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:aplikacija.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\core\\io\\yuvimgcodec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:core\\io\\yuvimgcodec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\core\\filters\\histogramequalizationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:core\\filters\\histogramequalizationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\core\\filters\\blacklightfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:core\\filters\\blacklightfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\core\\filters\\meanremovalfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:core\\filters\\meanremovalfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\core\\filters\\gaussianblurfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:core\\filters\\gaussianblurfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\core\\filters\\iimagefilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:core\\filters\\iimagefilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|c:\\users\\korisnik\\desktop\\repo\\mms\\aplikacija\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FD82A6B-C8AC-4603-8968-A400842ECC27}|Aplikacija.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,129 +90,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Aplikacija",
-              "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Aplikacija.csproj",
-              "RelativeDocumentMoniker": "Aplikacija.csproj",
-              "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Aplikacija.csproj",
-              "RelativeToolTip": "Aplikacija.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-06T15:15:33.156Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Aplikacija",
-              "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Aplikacija.csproj",
-              "RelativeDocumentMoniker": "Aplikacija.csproj",
-              "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Aplikacija.csproj",
-              "RelativeToolTip": "Aplikacija.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-06T15:15:49.365Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "HistogramEqualizationFilter.cs",
-              "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\HistogramEqualizationFilter.cs",
-              "RelativeDocumentMoniker": "Core\\Filters\\HistogramEqualizationFilter.cs",
-              "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\HistogramEqualizationFilter.cs",
-              "RelativeToolTip": "Core\\Filters\\HistogramEqualizationFilter.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAowE4AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-06T15:01:05.653Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "BlacklightFilter.cs",
-              "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\BlacklightFilter.cs",
-              "RelativeDocumentMoniker": "Core\\Filters\\BlacklightFilter.cs",
-              "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\BlacklightFilter.cs",
-              "RelativeToolTip": "Core\\Filters\\BlacklightFilter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-06T15:00:52.406Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MeanRemovalFilter.cs",
-              "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\MeanRemovalFilter.cs",
-              "RelativeDocumentMoniker": "Core\\Filters\\MeanRemovalFilter.cs",
-              "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\MeanRemovalFilter.cs",
-              "RelativeToolTip": "Core\\Filters\\MeanRemovalFilter.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAcwAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-06T15:00:40.555Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
               "Title": "GaussianBlurFilter.cs",
               "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\GaussianBlurFilter.cs",
               "RelativeDocumentMoniker": "Core\\Filters\\GaussianBlurFilter.cs",
               "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\GaussianBlurFilter.cs",
               "RelativeToolTip": "Core\\Filters\\GaussianBlurFilter.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAgwBsAAAANAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-06T15:00:30.956Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IImageFilter.cs",
-              "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\IImageFilter.cs",
-              "RelativeDocumentMoniker": "Core\\Filters\\IImageFilter.cs",
-              "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\IImageFilter.cs",
-              "RelativeToolTip": "Core\\Filters\\IImageFilter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-06T15:00:21.076Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "YuvImgCodec.cs",
               "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\IO\\YuvImgCodec.cs",
               "RelativeDocumentMoniker": "Core\\IO\\YuvImgCodec.cs",
               "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\IO\\YuvImgCodec.cs",
               "RelativeToolTip": "Core\\IO\\YuvImgCodec.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJYAAAAFAAAA",
+              "ViewState": "AQIAAIMAAAAAAAAAAAAuwBMAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-06T14:59:56.447Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "UndeRedoManager.cs",
               "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Imaging\\UndeRedoManager.cs",
               "RelativeDocumentMoniker": "Core\\Imaging\\UndeRedoManager.cs",
               "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Imaging\\UndeRedoManager.cs",
               "RelativeToolTip": "Core\\Imaging\\UndeRedoManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADkAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-06T14:59:44.821Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "ImageDocument.cs",
               "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Imaging\\ImageDocument.cs",
               "RelativeDocumentMoniker": "Core\\Imaging\\ImageDocument.cs",
               "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Imaging\\ImageDocument.cs",
               "RelativeToolTip": "Core\\Imaging\\ImageDocument.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-06T14:59:32.569Z",
               "EditorCaption": ""
@@ -225,27 +148,27 @@
               "RelativeDocumentMoniker": "UI\\Controls\\CoverImageView.cs",
               "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\UI\\Controls\\CoverImageView.cs",
               "RelativeToolTip": "UI\\Controls\\CoverImageView.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGAAAAAAAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAowCQAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-06T14:49:10.93Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MainForm.cs",
-              "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\MainForm.cs",
-              "RelativeDocumentMoniker": "MainForm.cs",
-              "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\MainForm.cs",
-              "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AQIAAGIAAAAAAAAAAAAAwHAAAAAUAAAA",
+              "DocumentIndex": 7,
+              "Title": "HistogramEqualizationFilter.cs",
+              "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\HistogramEqualizationFilter.cs",
+              "RelativeDocumentMoniker": "Core\\Filters\\HistogramEqualizationFilter.cs",
+              "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\HistogramEqualizationFilter.cs",
+              "RelativeToolTip": "Core\\Filters\\HistogramEqualizationFilter.cs",
+              "ViewState": "AQIAAK4AAAAAAAAAAAAowLEAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T21:44:54.487Z",
+              "WhenOpened": "2025-09-06T15:01:05.653Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -253,11 +176,87 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T21:43:17.56Z"
+              "WhenOpened": "2025-09-04T21:43:17.56Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\MainForm.cs",
+              "RelativeDocumentMoniker": "MainForm.cs",
+              "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\MainForm.cs",
+              "RelativeToolTip": "MainForm.cs",
+              "ViewState": "AQIAALwAAAAAAAAAAAAmwDEAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T21:44:54.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MeanRemovalFilter.cs",
+              "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\MeanRemovalFilter.cs",
+              "RelativeDocumentMoniker": "Core\\Filters\\MeanRemovalFilter.cs",
+              "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\MeanRemovalFilter.cs",
+              "RelativeToolTip": "Core\\Filters\\MeanRemovalFilter.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAwwAsAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T15:00:40.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BlacklightFilter.cs",
+              "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\BlacklightFilter.cs",
+              "RelativeDocumentMoniker": "Core\\Filters\\BlacklightFilter.cs",
+              "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\BlacklightFilter.cs",
+              "RelativeToolTip": "Core\\Filters\\BlacklightFilter.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAwwDMAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T15:00:52.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IImageFilter.cs",
+              "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\IImageFilter.cs",
+              "RelativeDocumentMoniker": "Core\\Filters\\IImageFilter.cs",
+              "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Core\\Filters\\IImageFilter.cs",
+              "RelativeToolTip": "Core\\Filters\\IImageFilter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T15:00:21.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Aplikacija",
+              "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Aplikacija.csproj",
+              "RelativeDocumentMoniker": "Aplikacija.csproj",
+              "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Aplikacija.csproj",
+              "RelativeToolTip": "Aplikacija.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-06T15:15:49.365Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Aplikacija.csproj",
+              "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Aplikacija.csproj",
+              "RelativeDocumentMoniker": "Aplikacija.csproj",
+              "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\Aplikacija.csproj",
+              "RelativeToolTip": "Aplikacija.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-06T15:15:33.156Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "MainForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\MainForm.Designer.cs",
               "RelativeDocumentMoniker": "MainForm.Designer.cs",
@@ -265,20 +264,18 @@
               "RelativeToolTip": "MainForm.Designer.cs",
               "ViewState": "AQIAAB0BAAAAAAAAAAAYwC0BAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T20:03:48.022Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T20:03:48.022Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "C:\\Users\\korisnik\\Desktop\\repo\\mms\\Aplikacija\\MainForm.cs [Design]",
               "RelativeToolTip": "MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T19:21:41.336Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-09-04T19:21:41.336Z"
             }
           ]
         }

@@ -1,10 +1,12 @@
 ﻿using Aplikacija.Core.Filters;
 using Aplikacija.Core.Imaging;
 using Aplikacija.Core.IO;
+using Aplikacija.UI.Controls;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using System.Diagnostics;
 
 namespace Aplikacija
 {
@@ -15,7 +17,10 @@ namespace Aplikacija
         public MainForm()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
+            pbImage.DisplayMode = ImageDisplayMode.Contain;  // uvek cela slika
+            pbImage.SmartContainForPortraits = false;        
+            pbImage.Dock = DockStyle.Fill;
+            panelViewport.AutoScroll = false;
         }
 
         // ===== lifecycle =====
@@ -53,7 +58,21 @@ namespace Aplikacija
         private void filterHistEqMenuItem_Click(object sender, EventArgs e)
             => ApplyFilter(new HistogramEqualizationFilter());
 
-        // ===== helpers (privremeno – TODO: zameni pravom logikom) =====
+        // ===== helpers =====
+        private void SetBusy(bool busy)
+        {
+            UseWaitCursor = busy;
+            menuMain.Enabled = !busy;
+            toolMain.Enabled = !busy;
+            Cursor.Current = busy ? Cursors.WaitCursor : Cursors.Default;
+        }
+
+        private static string FormatDuration(TimeSpan t)
+        {
+            if (t.TotalSeconds >= 1.0) return $"{t.TotalSeconds:F3} s";
+            return $"{t.TotalMilliseconds:F1} ms";
+        }
+
         private void BtnOpen()
         {
             using var ofd = new OpenFileDialog
@@ -109,20 +128,19 @@ namespace Aplikacija
         {
             if (bmp == null) return;
 
-            // 1:1 prikaz
-            pbImage.SizeMode = PictureBoxSizeMode.Normal;
-            pbImage.Image = bmp;
+            
+            pbImage.DisplayMode = ImageDisplayMode.ActualSize;
 
-            // postavi tačnu veličinu picturebox-a da bude koliko i slika
-            pbImage.Size = bmp.Size;
+            
+            pbImage.Dock = DockStyle.None;
+            pbImage.Image = bmp;
+            pbImage.Size = bmp.Size;                 
             pbImage.Location = new Point(0, 0);
 
-            // obezbedi skrolbarove
             panelViewport.AutoScroll = true;
             panelViewport.AutoScrollMinSize = bmp.Size;
 
-            // status
-            lblInfo.Text = $"{bmp.Width}×{bmp.Height} px";
+            lblInfo.Text = $"{bmp.Width}×{bmp.Height} px (1:1)";
         }
 
         private void BtnUndo()
@@ -142,11 +160,30 @@ namespace Aplikacija
         private void ApplyFilter(IImageFilter filter)
         {
             if (_doc.Bitmap == null) return;
-            _doc.Apply(src => filter.Apply(src));
+
+            SetBusy(true);
+            var sw = Stopwatch.StartNew();
+            try
+            {
+                _doc.Apply(src => filter.Apply(src));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, $"Filter failed: {filter.Name}",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            finally
+            {
+                sw.Stop();
+                SetBusy(false);
+            }
+
             pbImage.Image = _doc.Bitmap;
-            lblInfo.Text = $"Applied: {filter.Name}";
+            lblInfo.Text = $"Applied: {filter.Name}  •  {FormatDuration(sw.Elapsed)}  •  {_doc.Bitmap.Width}×{_doc.Bitmap.Height}";
             UpdateUi();
         }
+
 
 
         private void UpdateUi()

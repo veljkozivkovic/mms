@@ -28,7 +28,7 @@ namespace Aplikacija.Core.Imaging
 
         public void Push(T state)
         {
-            // ako smo u sredini istorije, brišemo sve “redo” grane desno
+            // ako smo u sredini istorije
             if (_index >= 0 && _index < _states.Count - 1)
             {
                 for (int i = _index + 1; i < _states.Count; i++)

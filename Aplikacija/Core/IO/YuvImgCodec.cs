@@ -17,7 +17,7 @@ namespace Aplikacija.Core.IO
         {
             int w = bmp.Width, h = bmp.Height;
             byte[] Y, U, V; ToYuv(bmp, out Y, out U, out V);
-            // 4:2:0 – downsample U,V u oba smera
+            // 4:2:0 – downsample U,V oba smera
             byte[] Uds = Down2x2(U, w, h);
             byte[] Vds = Down2x2(V, w, h);
 

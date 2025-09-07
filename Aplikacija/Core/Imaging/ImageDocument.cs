@@ -9,7 +9,7 @@ namespace Aplikacija.Core.Imaging
         public Bitmap Bitmap { get; private set; }
         public readonly UndoRedoManager<Bitmap> History = new()
         {
-            // kada istorija odbacuje stanja, ovde se bezbedno oslobadjaju resursi
+            
             OnDrop = (bmp) => { try { bmp?.Dispose(); } catch { } }
         };
 
@@ -17,20 +17,21 @@ namespace Aplikacija.Core.Imaging
         {
             Bitmap?.Dispose();
             Bitmap = DeepClone(bmp);
-            History.Reset(DeepClone(Bitmap)); // istorija čuva *kopiju* trenutnog
+            History.Reset(DeepClone(Bitmap)); 
         }
 
         public void Apply(Func<Bitmap, Bitmap> transform)
         {
             if (Bitmap == null) return;
 
-            // 1) push PRETHODNO stanje kao kopiju (da istorija nikad ne drži “uživo” sliku)
-            History.Push(DeepClone(Bitmap));
-
-            // 2) izračunaj sledeće
+            
             var next = transform(Bitmap);
+            if (next == null) return; 
 
-            // 3) HOT-SWAP: zameni aktuelnu
+            
+            History.Push(DeepClone(next));
+
+            
             var old = Bitmap;
             Bitmap = next;
             old?.Dispose();
@@ -43,8 +44,7 @@ namespace Aplikacija.Core.Imaging
         {
             if (!CanUndo) return;
 
-            // VAŽNO: ne uzimamo referencu iz istorije direktno,
-            // nego pravimo KOPIJU za "trenutnu" sliku
+            
             var snapshot = History.Undo();
             if (snapshot != null)
             {

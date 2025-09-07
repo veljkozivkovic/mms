@@ -1,80 +1,193 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Aplikacija.Core.Filters
 {
     public class HistogramEqualizationFilter : IImageFilter
     {
-        public string Name => "Histogram Equalization (Y)";
+        public string Name => "Histogram Equalization (Y, robust)";
+
+
+        private const double TAIL_CUT = 0.005;
 
         public Bitmap Apply(Bitmap src)
         {
-            int w = src.Width, h = src.Height;
+            int w = src.Width, h = src.Height, n = w * h;
+            var rect = new Rectangle(0, 0, w, h);
+
+
+            bool cloned = false;
+            Bitmap src32;
+            if (src.PixelFormat != PixelFormat.Format32bppArgb)
+            {
+                src32 = src.Clone(rect, PixelFormat.Format32bppArgb);
+                cloned = true;
+            }
+            else
+            {
+                src32 = src;
+            }
+
+            byte[] Y = new byte[n];          
+            int[] hist = new int[256];       
+
+ 
+            var s = src32.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+            try
+            {
+                unsafe
+                {
+                    byte* sBase = (byte*)s.Scan0;
+                    int stride = s.Stride;
+
+                    Parallel.For(0, h,
+                        () => new int[256], 
+                        (y, loop, localHist) =>
+                        {
+                            byte* p = sBase + y * stride;
+                            int row = y * w;
+
+                            for (int x = 0; x < w; x++)
+                            {
+                                int B = p[0], G = p[1], R = p[2];
+
+                                
+                                int yv = (19595 * R + 38470 * G + 7471 * B + (1 << 15)) >> 16;
+                                if ((uint)yv > 255) yv = yv < 0 ? 0 : 255;
+
+                                int idx = row + x;
+                                Y[idx] = (byte)yv;
+                                localHist[yv]++;
+
+                                p += 4;
+                            }
+
+                            return localHist;
+                        },
+                        localHist =>
+                        {
+                            lock (hist)
+                            {
+                                for (int i = 0; i < 256; i++) hist[i] += localHist[i];
+                            }
+                        });
+                }
+            }
+            finally { src32.UnlockBits(s); }
+
+           
+            int total = n;
+            if (total == 0) return src.Clone(rect, PixelFormat.Format32bppArgb);
+
+            int[] cdf = new int[256];
+            {   
+                int c = 0;
+                for (int i = 0; i < 256; i++) { c += hist[i]; cdf[i] = c; }
+            }
+
+            
+            int lowCount = (int)Math.Round(total * TAIL_CUT);
+            int highCount = (int)Math.Round(total * (1.0 - TAIL_CUT));
+
+            int lowIdx = 0; while (lowIdx < 256 && cdf[lowIdx] < lowCount) lowIdx++;
+            int highIdx = 255; while (highIdx > 0 && cdf[highIdx] > highCount) highIdx--;
+
+            
+            if (lowIdx >= highIdx)
+            {
+                
+                return src.Clone(rect, PixelFormat.Format32bppArgb);
+            }
+
+            int cdfLow = cdf[lowIdx];
+            int cdfHigh = cdf[highIdx];
+            int denom = cdfHigh - cdfLow;
+            if (denom <= 0)
+            {
+                return src.Clone(rect, PixelFormat.Format32bppArgb);
+            }
+
+            
+            byte[] map = new byte[256];
+            for (int i = 0; i < 256; i++)
+            {
+                int num = cdf[i] - cdfLow;
+                if (num < 0) num = 0;
+                if (num > denom) num = denom;
+
+                int val = (int)((num * 255L + (denom >> 1)) / denom);
+                if ((uint)val > 255) val = val < 0 ? 0 : 255;
+                map[i] = (byte)val;
+            }
+
+           
             var dst = new Bitmap(w, h, PixelFormat.Format32bppArgb);
 
-            // 1) izračun Y + hist
-            int[] hist = new int[256];
-            byte[,] Y = new byte[h, w];
-            byte[,] U = new byte[h, w];
-            byte[,] V = new byte[h, w];
+            var s2 = src32.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+            var d2 = dst.LockBits(rect, ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
 
-            var r = new Rectangle(0, 0, w, h);
-            var s = src.LockBits(r, ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
-
-            unsafe
+            try
             {
-                for (int y = 0; y < h; y++)
+                unsafe
                 {
-                    byte* p = (byte*)s.Scan0 + y * s.Stride;
-                    for (int x = 0; x < w; x++)
+                    byte* sBase = (byte*)s2.Scan0; int sStride = s2.Stride;
+                    byte* dBase = (byte*)d2.Scan0; int dStride = d2.Stride;
+
+                    const int HALF = 1 << 15; 
+
+                    Parallel.For(0, h, y =>
                     {
-                        int B = p[0], G = p[1], R = p[2];
-                        double yv = 0.299 * R + 0.587 * G + 0.114 * B;
-                        double uv = -0.169 * R - 0.331 * G + 0.5 * B + 128.0;
-                        double vv = 0.5 * R - 0.419 * G - 0.081 * B + 128.0;
-                        byte yb = (byte)Math.Clamp((int)Math.Round(yv), 0, 255);
-                        byte ub = (byte)Math.Clamp((int)Math.Round(uv), 0, 255);
-                        byte vb = (byte)Math.Clamp((int)Math.Round(vv), 0, 255);
-                        Y[y, x] = yb; U[y, x] = ub; V[y, x] = vb;
-                        hist[yb]++;
-                        p += 4;
-                    }
+                        byte* sRow = sBase + y * sStride;
+                        byte* dRow = dBase + y * dStride;
+                        int row = y * w;
+
+                        for (int x = 0; x < w; x++)
+                        {
+                            byte* sp = sRow + x * 4;
+                            byte* dp = dRow + x * 4;
+
+                            int B = sp[0], G = sp[1], R = sp[2], A = sp[3];
+
+                            
+                            int yOld = Y[row + x];
+                            int yNew = map[yOld];
+
+                            // U-128 i V-128 direktno iz RGB (Q16):
+                            // U-128 = -0.168736R -0.331264G +0.5B
+                            int u_m128 = (-11059 * R - 21709 * G + 32768 * B + HALF) >> 16;
+                            // V-128 = +0.5R -0.418688G -0.081312B
+                            int v_m128 = (32768 * R - 27439 * G - 5329 * B + HALF) >> 16;
+
+                            // Inverzno u RGB:
+                            // R = Y + 1.402 * (V-128)      => 1.402 * 65536 = 91881
+                            int R2 = yNew + ((91881 * v_m128 + HALF) >> 16);
+                            // G = Y - (0.344136*(U-128) + 0.714136*(V-128)) => 22554, 46802
+                            int G2 = yNew - ((22554 * u_m128 + 46802 * v_m128 + HALF) >> 16);
+                            // B = Y + 1.772 * (U-128)      => 1.772 * 65536 = 116130
+                            int B2 = yNew + ((116130 * u_m128 + HALF) >> 16);
+
+                            if ((uint)R2 > 255) R2 = R2 < 0 ? 0 : 255;
+                            if ((uint)G2 > 255) G2 = G2 < 0 ? 0 : 255;
+                            if ((uint)B2 > 255) B2 = B2 < 0 ? 0 : 255;
+
+                            dp[0] = (byte)B2;
+                            dp[1] = (byte)G2;
+                            dp[2] = (byte)R2;
+                            dp[3] = (byte)A; // ALFA ISTI
+                        }
+                    });
                 }
             }
-            src.UnlockBits(s);
-
-            // 2) CDF
-            int n = w * h;
-            int c = 0; byte[] map = new byte[256];
-            for (int i = 0; i < 256; i++) { c += hist[i]; map[i] = (byte)Math.Round((c - (double)hist[0]) / (n - 1) * 255.0); }
-
-            // 3) nazad u RGB, ali sa equalizovanim Y
-            var d = dst.LockBits(r, ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
-            unsafe
+            finally
             {
-                for (int y = 0; y < h; y++)
-                {
-                    byte* p = (byte*)d.Scan0 + y * d.Stride;
-                    for (int x = 0; x < w; x++)
-                    {
-                        int yv = map[Y[y, x]];
-                        int u = U[y, x] - 128;
-                        int v = V[y, x] - 128;
-                        int R = Clamp(yv + (int)Math.Round(1.402 * v));
-                        int G = Clamp(yv - (int)Math.Round(0.344136 * u + 0.714136 * v));
-                        int B = Clamp(yv + (int)Math.Round(1.772 * u));
-                        p[0] = (byte)B; p[1] = (byte)G; p[2] = (byte)R; p[3] = 255;
-                        p += 4;
-                    }
-                }
+                src32.UnlockBits(s2);
+                dst.UnlockBits(d2);
+                if (cloned) src32.Dispose();
             }
-            dst.UnlockBits(d);
+
             return dst;
         }
-        private static int Clamp(int v) => v < 0 ? 0 : (v > 255 ? 255 : v);
     }
 }
